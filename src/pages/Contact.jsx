@@ -42,7 +42,7 @@ function Contact() {
       formData.append("mst", formFields?.mst)
       formData.append("script", formFields?.script)
       const uploadResponse = await axios.put(
-        `http://localhost:5000/edit-handbook`,
+        `https://be-phong-kham.vercel.app/edit-handbook`,
         formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -62,7 +62,7 @@ function Contact() {
     const fetchData = async () => {
       setLoading(true)
       try {
-        const response = await axios.post('http://localhost:5000/get-contact');
+        const response = await axios.post('https://be-phong-kham.vercel.app/get-contact');
         const data = response.data.data[0]
         setFormFields({
           address: data?.address || '',
@@ -173,7 +173,7 @@ function Contact() {
                         formData.append('img', file);
                         try {
                           setLoading(true);
-                          const response = await fetch('http://localhost:5000/postImg', {
+                          const response = await fetch('https://be-phong-kham.vercel.app/postImg', {
                             method: 'POST',
                             body: formData,
                           });

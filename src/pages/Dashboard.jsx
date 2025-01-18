@@ -82,7 +82,7 @@ function Dashboard() {
         const formData = new FormData();
         images.map((img) => formData.append('img', img.file));
         const uploadResponse = await axios.post(
-          'http://localhost:5000/createXdndProject',
+          'https://be-phong-kham.vercel.app/createXdndProject',
           formData, {
           headers: {
             'Content-Type': 'multipart/form-data' // Đặt header 'Content-Type' là 'multipart/form-data' cho FormData
@@ -93,7 +93,7 @@ function Dashboard() {
         groupImg = [...groupImg, ...uploadResponse.data.data.postings.img];
       }
       const responseEdit = await axios.put(
-        `http://localhost:5000/edit-xdnd-project/${dataItem?._id}`,
+        `https://be-phong-kham.vercel.app/edit-xdnd-project/${dataItem?._id}`,
         {
           title: formFields?.title,
           description: formFields?.description,
@@ -123,7 +123,7 @@ function Dashboard() {
   const handleDelete = async (data) => {
     try {
       setLoading(true)
-      const response = await axios.delete(`http://localhost:5000/delete-xdnd-project/${data}`);
+      const response = await axios.delete(`https://be-phong-kham.vercel.app/delete-xdnd-project/${data}`);
       if (response.status === 200) {
         setReload((prev) => prev + 1);
         setLoading(false)
@@ -143,7 +143,7 @@ function Dashboard() {
     setActiveButton(id);
     setLoading(true)
     try {
-      const response = await axios.post('http://localhost:5000/getXdndProject', {
+      const response = await axios.post('https://be-phong-kham.vercel.app/getXdndProject', {
         type: id
       });
       setDataXdndDesign(response.data.data.postings);
@@ -177,7 +177,7 @@ function Dashboard() {
       setLoading(true)
       try {
         // Thay thế URL_API bằng URL API thực tế của bạn
-        const response = await axios.post('http://localhost:5000/getXdndProject', {
+        const response = await axios.post('https://be-phong-kham.vercel.app/getXdndProject', {
           type: activeButton
         });
 

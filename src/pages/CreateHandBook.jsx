@@ -46,7 +46,7 @@ function CreateHandbook() {
             formData.append('type', types);
             formData.append('img', images?.[0]?.file)
             formData.append('script', content)
-            const response = await axios.post('http://localhost:5000/create-handbook', formData, {
+            const response = await axios.post('https://be-phong-kham.vercel.app/create-handbook', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -159,7 +159,7 @@ function CreateHandbook() {
                                                         formData.append('img', file);
                                                         try {
                                                             setLoading(true);
-                                                            const response = await fetch('http://localhost:5000/postImg', {
+                                                            const response = await fetch('https://be-phong-kham.vercel.app/postImg', {
                                                                 method: 'POST',
                                                                 body: formData,
                                                             });

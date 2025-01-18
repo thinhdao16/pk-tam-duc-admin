@@ -78,7 +78,7 @@ function Construction() {
             formData.append("type", formFields?.types)
             formData.append("script", formFields?.script)
             const uploadResponse = await axios.put(
-                `http://localhost:5000/edit-handbook/${dataItem?._id}`,
+                `https://be-phong-kham.vercel.app/edit-handbook/${dataItem?._id}`,
                 formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -98,7 +98,7 @@ function Construction() {
     const handleDelete = async (data) => {
         try {
             setLoading(true)
-            const response = await axios.delete(`http://localhost:5000/delete-handbook/${data}`);
+            const response = await axios.delete(`https://be-phong-kham.vercel.app/delete-handbook/${data}`);
             if (response.status === 200) {
                 setReload((prev) => prev + 1);
                 setLoading(false)
@@ -118,7 +118,7 @@ function Construction() {
         setActiveButton(id);
         setLoading(true)
         try {
-            const response = await axios.post('http://localhost:5000/get-handbook', {
+            const response = await axios.post('https://be-phong-kham.vercel.app/get-handbook', {
                 type: id
             });
             setDataHandbook(response.data.data);
@@ -146,7 +146,7 @@ function Construction() {
             setLoading(true)
             try {
                 // Thay thế URL_API bằng URL API thực tế của bạn
-                const response = await axios.post('http://localhost:5000/get-handbook', {
+                const response = await axios.post('https://be-phong-kham.vercel.app/get-handbook', {
                     type: activeButton
                 });
 
@@ -349,7 +349,7 @@ function Construction() {
                                                     formData.append('img', file);
                                                     try {
                                                         setLoading(true);
-                                                        const response = await fetch('http://localhost:5000/postImg', {
+                                                        const response = await fetch('https://be-phong-kham.vercel.app/postImg', {
                                                             method: 'POST',
                                                             body: formData,
                                                         });
