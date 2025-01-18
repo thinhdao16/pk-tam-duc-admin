@@ -55,7 +55,7 @@ function CreateProject() {
                 formData.append('img', arrayImg[i]);
             }
 
-            const response = await axios.post('https://fhomebe.onrender.com/createXdndProject', formData, {
+            const response = await axios.post('http://localhost:5000/createXdndProject', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data' // Đặt header 'Content-Type' là 'multipart/form-data' cho FormData
                 }

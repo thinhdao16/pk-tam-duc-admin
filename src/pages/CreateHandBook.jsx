@@ -46,7 +46,7 @@ function CreateHandbook() {
             formData.append('type', types);
             formData.append('img', images?.[0]?.file)
             formData.append('script', content)
-            const response = await axios.post('https://fhomebe.onrender.com/create-handbook', formData, {
+            const response = await axios.post('http://localhost:5000/create-handbook', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -106,11 +106,11 @@ function CreateHandbook() {
                                     value={types}
                                     onChange={(e) => setTypes(e.target.value)}
                                 >
-                                    <option value="" selected>Chọn loại dự án</option>
-                                    <option value="design">Thiết kế</option>
-                                    <option value="fengShui">Phong thủy</option>
-                                    <option value="costCaculation">Tính toán chi phí</option>
-                                    <option value="share">Chia sẻ</option>
+                                    <option value="" selected>Chọn loại bảng tin</option>
+                                    <option value="post">Bài viết</option>
+                                    <option value="action">Hoạt động</option>
+                                    <option value="knowledge">Kiến thức sức khỏe</option>
+                                    <option value="share">Sự kiện</option>
                                 </select>
                             </div>
                             <div className="flex flex-col gap-2">
@@ -159,7 +159,7 @@ function CreateHandbook() {
                                                         formData.append('img', file);
                                                         try {
                                                             setLoading(true);
-                                                            const response = await fetch('https://fhomebe.onrender.com/postImg', {
+                                                            const response = await fetch('http://localhost:5000/postImg', {
                                                                 method: 'POST',
                                                                 body: formData,
                                                             });
@@ -186,7 +186,7 @@ function CreateHandbook() {
                                 <button className="bg-emerald-600 text-gray-100 px-3 py-2 rounded-lg shadow-lg text-sm"
                                     onClick={handleCreateXdndProject}
                                 >
-                                    Tạo cẩm nang
+                                    Tạo Bảng Tin
                                 </button>
 
                             </div>

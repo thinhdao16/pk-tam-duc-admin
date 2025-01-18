@@ -51,7 +51,7 @@ function Sidebar({ ...props }) {
         {/* Sidebar wrapper */}
         <div className="md:w-64 border-r-2 border-gray-100 h-full flex-col flex flex-shrink-0">
           {/* Logo */}
-          <SidebarLogo toggle={props.toggle} icon={faLeaf} text="XDND" />
+          <SidebarLogo toggle={props.toggle} icon={faLeaf} text="PKTD" />
 
           {/* Search Menu */}
           <SidebarSearch

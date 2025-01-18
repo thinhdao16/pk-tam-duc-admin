@@ -8,10 +8,10 @@ import { useOutletContext } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
 
 const buttons = [
-    { id: "design", label: "Thiết kế" },
-    { id: "fengShui", label: "Phong thủy" },
-    { id: "costCaculation", label: "Tính toán chi phí" },
-    { id: "share", label: "Chia sẻ" },
+    { id: "post", label: "Bài viết" },
+    { id: "action", label: "Hoạt động" },
+    { id: "knowledge", label: "Kiến thức sức khỏe" },
+    { id: "event", label: "Sự kiện" },
 ];
 
 function Construction() {
@@ -28,9 +28,8 @@ function Construction() {
         description: '',
         types: '',
         script: '',
-
     });
-    const [activeButton, setActiveButton] = useState("fengShui");
+    const [activeButton, setActiveButton] = useState("post");
     const handleOpenEdit = (data) => {
         setDataItem(data)
         setOpen(true)
@@ -79,7 +78,7 @@ function Construction() {
             formData.append("type", formFields?.types)
             formData.append("script", formFields?.script)
             const uploadResponse = await axios.put(
-                `https://fhomebe.onrender.com/edit-handbook/${dataItem?._id}`,
+                `http://localhost:5000/edit-handbook/${dataItem?._id}`,
                 formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -99,7 +98,7 @@ function Construction() {
     const handleDelete = async (data) => {
         try {
             setLoading(true)
-            const response = await axios.delete(`https://fhomebe.onrender.com/delete-handbook/${data}`);
+            const response = await axios.delete(`http://localhost:5000/delete-handbook/${data}`);
             if (response.status === 200) {
                 setReload((prev) => prev + 1);
                 setLoading(false)
@@ -119,7 +118,7 @@ function Construction() {
         setActiveButton(id);
         setLoading(true)
         try {
-            const response = await axios.post('https://fhomebe.onrender.com/get-handbook', {
+            const response = await axios.post('http://localhost:5000/get-handbook', {
                 type: id
             });
             setDataHandbook(response.data.data);
@@ -147,7 +146,7 @@ function Construction() {
             setLoading(true)
             try {
                 // Thay thế URL_API bằng URL API thực tế của bạn
-                const response = await axios.post('https://fhomebe.onrender.com/get-handbook', {
+                const response = await axios.post('http://localhost:5000/get-handbook', {
                     type: activeButton
                 });
 
@@ -232,7 +231,7 @@ function Construction() {
                 </div>
 
                 <Modal
-                    title="Modal 1000px width"
+                    title="Chỉnh sửa bảng tin "
                     centered
                     open={open}
                     onOk={() => setOpen(false)}
@@ -350,7 +349,7 @@ function Construction() {
                                                     formData.append('img', file);
                                                     try {
                                                         setLoading(true);
-                                                        const response = await fetch('https://fhomebe.onrender.com/postImg', {
+                                                        const response = await fetch('http://localhost:5000/postImg', {
                                                             method: 'POST',
                                                             body: formData,
                                                         });

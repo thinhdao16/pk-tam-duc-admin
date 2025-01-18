@@ -10,9 +10,12 @@ module.exports = {
       fontFamily: {
         sans: ['Lato', ...defaultTheme.fontFamily.sans],
       },
-      boxShadow:{
+      boxShadow: {
         myShadow1: "4.1px -5px 0 0  rgb(241 245 249)",
         myShadow2: "-4.1px -5px 0 0  rgb(241 245 249)",
+      },
+      color: {
+        " main-pk": "#d39bcb",
       }
     },
   },

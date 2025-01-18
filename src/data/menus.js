@@ -3,24 +3,29 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const initMenu = [
+  // {
+  //   label: "Mẫu nhà đẹp",
+  //   path: "/",
+  //   icon: faTachometer,
+  // },
   {
-    label: "Mẫu nhà đẹp",
-    path: "/",
-    icon: faTachometer,
-  },
-  {
-    label: "Cẩm nang",
+    label: "Bảng tin",
     path: "/construction",
     icon: faTachometer,
   },
+  // {
+  //   label: "Tạo mẫu nhà",
+  //   path: "/create-project",
+  //   icon: faTachometer,
+  // },
   {
-    label: "Tạo mẫu nhà",
-    path: "/create-project",
+    label: "Tạo bảng tin",
+    path: "/create-handbook",
     icon: faTachometer,
   },
   {
-    label: "Tạo cẩm nang",
-    path: "/create-handbook",
+    label: "Liên hệ",
+    path: "/contact",
     icon: faTachometer,
   },
   // {

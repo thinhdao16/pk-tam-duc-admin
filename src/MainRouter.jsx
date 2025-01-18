@@ -13,6 +13,7 @@ import CreateProject from './pages/CreateProject';
 import { useAuthContext } from './context/AuthContext';
 import Construction from './pages/Construction';
 import CreateHandbook from './pages/CreateHandBook';
+import Contact from './pages/Contact';
 
 function MainRouter(props) {
     const [checkAccessToken, setCheckAccessToken] = useState('');
@@ -27,8 +28,9 @@ function MainRouter(props) {
             {checkAccessToken !== null ? (
                 <>
                     <Route path="/" element={<AuthLayout />}>
-                        <Route path="/" element={<Dashboard />} />
+                        <Route path="/" element={<Construction />} />
                         <Route path="/table" element={<Table />} />
+                        <Route path="/contact" element={<Contact />} />
                         <Route path="/create-project" element={<CreateProject />} />
                         <Route path="/create-handbook" element={<CreateHandbook />} />
                         <Route path="/blank" element={<Blank />} />

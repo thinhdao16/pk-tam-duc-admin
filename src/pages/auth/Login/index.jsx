@@ -14,10 +14,8 @@ function LoginIndex() {
   const { refeshLogin, setRefeshLogin } = useAuthContext()
   const isValidCredentials = (email, password) => {
     const validCredentials = [
-      { email: "admin", password: "admin@xdnd123" },
-      { email: "Admin", password: "Admin@xdnd123" },
-      { email: "admin", password: "Admin@xdnd123" },
-      { email: "Admin", password: "Admin@xdnd123" }
+      { email: "admin", password: "Admin123" },
+      { email: "Admin", password: "Admin123" }
     ];
     return validCredentials.some(cred => cred.email === email && cred.password === password);
   };
